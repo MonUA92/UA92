@@ -1,0 +1,94 @@
+*{
+    font-family: 'Merriweather Sans', sans-serif;
+}
+
+
+.navbar .navbar-nav .nav-link {
+    color: whitesmoke;
+    font-size: 1.1em;
+}
+.navbar .navbar-nav .nav-link:hover{
+    color: black;
+}
+@media only screen and (min-width: 960px) {
+  .dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+  }
+  .dropdown .dropdown-menu {
+    display: none;
+  }
+  .dropdown:hover .dropdown-toggle::after {
+    border-bottom: 0.3em solid;
+    border-top: 0;
+  }
+}
+@media screen and (max-width: 991px) {
+  .dropdown-toggle.show::after {
+    border-top: 0;
+    border-bottom: 0.3em solid;
+  }
+}
+
+
+.main-title{
+    text-align: center;
+    margin-top: 5%;
+    font-size: 70px;
+    color: white;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.main-table {
+    text-align: center;
+    border-collapse: collapse;
+    margin-left: 40%;
+    margin-top: 20%;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px black;
+    animation: bounce 1.7s infinite;
+    transition: all 0.5s ease 0s;
+}
+
+.main-table thead tr {
+    background-color: #324ab2;
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+}
+
+.main-table th
+ {
+    padding: 12px 15px;
+}
+
+
+.main-table tbody tr {
+    border-bottom: 1px solid #ffffff;
+}
+
+.main-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.main-table tbody tr:last-of-type {
+    border-bottom: 2px solid #324ab2;
+}
+
+.main-table tbody tr.active-row {
+    font-weight: bold;
+    color: #324ab2;
+}
+
+@keyframes bounce {
+    15% {
+     transform: translate(0, 4px);
+    }
+    50% {
+      transform: translate(0, 8px);
+    }
+  } 

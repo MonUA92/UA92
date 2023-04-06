@@ -1,0 +1,74 @@
+<?php
+session_start();
+$link = mysqli_connect("sdb-56.hosting.stackcp.net", "student106-353031336448", "ua92-studentAc", "student106-353031336448");
+if ($link === false) {
+    die("Connection failed: ");
+}
+
+
+
+
+?>
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+
+        .field{
+            margin: 20px ;
+        }
+    </style>
+</head>
+<body>
+ <h1> Welcome to Rishton Primary School</h1>
+ <h3> Please Login Below</h3>
+ 
+ <div>
+    <form action="home.php" method = "post">
+
+    <input class="field" type="text" name = "Username" placeholder ="Username" required = ""><br>
+    <input class="field" type="Password" name = "Password" placeholder ="Password" required = ""><br/>
+    <input class="field" type="submit" name="login" value="Login">
+    </form>
+ </div>
+
+ <?php
+
+ if (isset($_POST['Login'])){
+    $Username = $_POST['Username'];
+    $Pass = $_POST['Pass'];
+
+    $select = mysqli_query($link, "SELECT * FROM Signinout WHERE Username ='$Username' AND Pass = '$Pass'  ");
+    $row = mysqli_fetch_array($select)
+
+    if(is_array($row)){
+        $_SESSION["Username"] = $row['Username'];
+        $_SESSION["Pass"] = $row['Pass'];
+    else{
+        echo '<script type = "text/javascript">'
+        echo 'alert("Inavlid input, please try again !")'
+        echo 'window.location.href = "index.php" ';
+        echo '</script>'
+    }
+}
+   if(isset($_SESSION["Username"])){
+    header("Location:login.php");
+   }
+ }
+
+ ?>
+</body>
+</html>
